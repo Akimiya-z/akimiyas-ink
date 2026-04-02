@@ -10,6 +10,7 @@ const fgMuted = 'hsl(var(--muted-foreground) / var(--un-text-opacity, 1))'
 const bgMuted = 'hsl(var(--muted) / var(--un-bg-opacity, 1))'
 const border = 'var(--un-default-border-color)'
 const radius = 'var(--radius)'
+const sans = 'var(--font-claude-sans)'
 
 const typographyConfig: TypographyOptions = {
   colorScheme: {
@@ -178,7 +179,10 @@ export default defineConfig({
   ],
   rules,
   theme: {
-    colors: themeColors
+    colors: themeColors,
+    fontFamily: {
+      sans
+    }
   },
   // https://unocss.dev/guide/extracting#limitations
   safelist: [

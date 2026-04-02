@@ -1,36 +1,39 @@
 /* Theme */
 :root {
+  --font-claude-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+    'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif;
   /* Primary */
-  --primary: 167 22% 39%;
+  --primary: 18 58% 53%;
   /* Foreground */
-  --foreground: 222 27% 15%;
-  --muted-foreground: 220 12% 34%;
+  --foreground: 25 10% 10%;
+  --muted-foreground: 30 7% 42%;
   /* Background */
-  --background: 42 44% 97%;
-  --muted: 36 34% 92%;
-  --card: 0 0% 100%;
+  --background: 40 26% 95%;
+  --muted: 38 22% 91%;
+  --card: 42 28% 97%;
 
   /* Basic */
-  --border: 28 20% 82%;
-  --input: 32 24% 88%;
-  --ring: 167 22% 39%;
+  --border: 34 15% 78%;
+  --input: 34 15% 78%;
+  --ring: 18 58% 53%;
   --radius: 0.9rem;
 }
 .dark {
   /* Primary */
-  --primary: 164 33% 74%;
+  --primary: 18 68% 62%;
   /* Foreground */
-  --foreground: 42 20% 92%;
-  --muted-foreground: 42 9% 71%;
+  --foreground: 42 24% 90%;
+  --muted-foreground: 34 11% 67%;
   /* Background */
-  --background: 222 21% 10%;
-  --muted: 220 16% 15%;
-  --card: 222 17% 13%;
+  --background: 24 9% 8%;
+  --muted: 24 8% 11%;
+  --card: 24 10% 14%;
 
   /* Basic */
-  --border: 220 12% 23%;
-  --input: 220 12% 18%;
-  --ring: 164 33% 74%;
+  --border: 28 8% 23%;
+  --input: 28 8% 23%;
+  --ring: 18 68% 62%;
 }
 :root {
   --un-default-border-color: hsl(var(--border) / 1);
@@ -45,13 +48,13 @@ body {
   min-height: 100dvh;
 }
 body {
+  font-family: var(--font-claude-sans);
   position: relative;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 10% 10%, rgb(240 191 170 / 72%), transparent 24%),
-    radial-gradient(circle at 88% 12%, rgb(181 205 238 / 58%), transparent 24%),
-    radial-gradient(circle at 74% 78%, rgb(171 204 188 / 42%), transparent 18%),
-    linear-gradient(180deg, hsl(42 50% 97%) 0%, hsl(39 36% 94%) 42%, hsl(38 29% 90%) 100%);
+    radial-gradient(circle at 14% 12%, rgb(210 107 68 / 18%), transparent 20%),
+    radial-gradient(circle at 84% 10%, rgb(255 250 242 / 78%), transparent 26%),
+    linear-gradient(180deg, hsl(42 31% 96%) 0%, hsl(40 22% 94%) 46%, hsl(35 17% 91%) 100%);
   background-attachment: fixed;
 
   &::before,
@@ -68,33 +71,32 @@ body {
       linear-gradient(90deg, hsl(var(--foreground) / 0.035) 1px, transparent 1px);
     background-size: 72px 72px;
     mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
-    opacity: 0.5;
+    opacity: 0.32;
   }
 
   &::after {
     background-image: radial-gradient(hsl(var(--foreground) / 0.06) 0.8px, transparent 0.8px);
     background-size: 18px 18px;
-    opacity: 0.2;
+    opacity: 0.12;
     mix-blend-mode: multiply;
   }
 }
 
 .dark body {
   background:
-    radial-gradient(circle at 12% 10%, rgb(101 153 194 / 18%), transparent 24%),
-    radial-gradient(circle at 90% 16%, rgb(111 182 159 / 16%), transparent 24%),
-    radial-gradient(circle at 74% 74%, rgb(225 174 134 / 12%), transparent 20%),
-    linear-gradient(180deg, hsl(222 27% 10%) 0%, hsl(223 23% 9%) 50%, hsl(225 24% 7%) 100%);
+    radial-gradient(circle at 14% 12%, rgb(210 107 68 / 14%), transparent 22%),
+    radial-gradient(circle at 86% 10%, rgb(255 244 230 / 4%), transparent 24%),
+    linear-gradient(180deg, hsl(28 10% 9%) 0%, hsl(24 10% 8%) 50%, hsl(20 10% 7%) 100%);
 
   &::before {
     background-image:
       linear-gradient(hsl(var(--foreground) / 0.045) 1px, transparent 1px),
       linear-gradient(90deg, hsl(var(--foreground) / 0.045) 1px, transparent 1px);
-    opacity: 0.22;
+    opacity: 0.16;
   }
 
   &::after {
-    opacity: 0.08;
+    opacity: 0.05;
     mix-blend-mode: screen;
   }
 }
@@ -112,8 +114,8 @@ body {
   border-inline: 1px solid hsl(var(--border) / 0.5);
   box-shadow:
     0 1px 0 hsl(var(--background) / 0.7) inset,
-    0 24px 60px rgb(56 44 28 / 12%);
-  backdrop-filter: blur(22px) saturate(140%);
+    0 24px 60px rgb(36 28 21 / 10%);
+  backdrop-filter: blur(22px) saturate(125%);
 }
 
 @media (max-width: 639px) {

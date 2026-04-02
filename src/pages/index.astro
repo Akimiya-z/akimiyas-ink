@@ -1,0 +1,92 @@
+---
+import { PostPreview } from 'astro-pure/components/pages'
+import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
+import { Button, Card, Icon, Label } from 'astro-pure/user'
+import PageLayout from '@/layouts/BaseLayout.astro'
+import Section from '@/components/home/Section.astro'
+import config from '@/site-config'
+
+const MAX_POSTS = 5
+const allPosts = await getBlogCollection()
+const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
+const githubUrl = config.footer.social?.github
+---
+
+<PageLayout meta={{ title: '首页' }} highlightColor='#90A39A'>
+  <main class='flex w-full flex-col items-center'>
+    <section class='animate mb-10 flex flex-col items-center gap-y-7' id='content-header'>
+      <img
+        src={config.logo.src}
+        alt={config.logo.alt || 'Profile'}
+        class='h-28 w-28 rounded-full border p-1 object-cover'
+        loading='eager'
+      />
+
+      <div class='flex flex-col items-center gap-y-4'>
+        <h1 class='text-3xl font-medium'>{config.author}</h1>
+        <p class='max-w-xl text-center text-muted-foreground'>{config.description}</p>
+        <div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
+          {githubUrl && (
+            <Label title='GitHub' as='a' href={githubUrl} target='_blank'>
+              <Icon name='github' class='size-5' slot='icon' />
+            </Label>
+          )}
+        </div>
+      </div>
+
+      <div class='flex flex-wrap justify-center gap-3'>
+        <Button title='查看博客' href='/blog' variant='ahead' />
+        <Button title='关于我' href='/about' variant='button' />
+      </div>
+    </section>
+
+    <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
+      <Section title='欢迎'>
+        <p class='text-muted-foreground'>
+          这是一个基于 Astro Theme Pure 搭建的个人网站第一版，用来放博客、折腾记录和以后会持续补完的个人信息。
+        </p>
+        <p class='text-muted-foreground'>
+          现在的目标很简单：先把站点搭起来，再慢慢把内容换成真正属于自己的东西。
+        </p>
+        <Button title='查看更多' class='w-fit self-end' href='/about' variant='ahead' />
+      </Section>
+      {
+        allPostsByDate.length > 0 && (
+          <Section title='最新文章'>
+            <ul class='flex flex-col gap-y-1.5 sm:gap-y-2'>
+              {allPostsByDate.map((p) => (
+                <li class='flex flex-col gap-x-2 sm:flex-row'>
+                  <PostPreview post={p} />
+                </li>
+              ))}
+            </ul>
+            <Button title='查看全部文章' class='w-fit self-end' href='/blog' variant='ahead' />
+          </Section>
+        )
+      }
+
+      <Section title='现在会写什么'>
+        <Card
+          heading='建站记录'
+          subheading='记录网站从初始化、改主题到上线的过程，方便以后回头看。'
+        >
+          <ul class='ms-4 list-disc text-muted-foreground'>
+            <li>Astro 与主题定制</li>
+            <li>Vercel 免费部署</li>
+            <li>写第一批真实文章</li>
+          </ul>
+        </Card>
+        <Card
+          heading='学习笔记'
+          subheading='把平时学到的东西整理成短文，后面逐步沉淀成更完整的内容。'
+        >
+          <ul class='ms-4 list-disc text-muted-foreground'>
+            <li>前端与静态站点</li>
+            <li>工具和效率方法</li>
+            <li>零散但值得记下来的想法</li>
+          </ul>
+        </Card>
+      </Section>
+    </div>
+  </main>
+</PageLayout>

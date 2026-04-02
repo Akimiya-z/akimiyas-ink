@@ -1,0 +1,140 @@
+/* Theme */
+:root {
+  /* Primary */
+  --primary: 167 22% 39%;
+  /* Foreground */
+  --foreground: 222 27% 15%;
+  --muted-foreground: 220 12% 34%;
+  /* Background */
+  --background: 42 44% 97%;
+  --muted: 36 34% 92%;
+  --card: 0 0% 100%;
+
+  /* Basic */
+  --border: 28 20% 82%;
+  --input: 32 24% 88%;
+  --ring: 167 22% 39%;
+  --radius: 0.9rem;
+}
+.dark {
+  /* Primary */
+  --primary: 164 33% 74%;
+  /* Foreground */
+  --foreground: 42 20% 92%;
+  --muted-foreground: 42 9% 71%;
+  /* Background */
+  --background: 222 21% 10%;
+  --muted: 220 16% 15%;
+  --card: 222 17% 13%;
+
+  /* Basic */
+  --border: 220 12% 23%;
+  --input: 220 12% 18%;
+  --ring: 164 33% 74%;
+}
+:root {
+  --un-default-border-color: hsl(var(--border) / 1);
+}
+html.dark {
+  color-scheme: dark;
+}
+
+/* Global */
+html,
+body {
+  min-height: 100dvh;
+}
+body {
+  position: relative;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 10% 10%, rgb(240 191 170 / 72%), transparent 24%),
+    radial-gradient(circle at 88% 12%, rgb(181 205 238 / 58%), transparent 24%),
+    radial-gradient(circle at 74% 78%, rgb(171 204 188 / 42%), transparent 18%),
+    linear-gradient(180deg, hsl(42 50% 97%) 0%, hsl(39 36% 94%) 42%, hsl(38 29% 90%) 100%);
+  background-attachment: fixed;
+
+  &::before,
+  &::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &::before {
+    background-image:
+      linear-gradient(hsl(var(--foreground) / 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--foreground) / 0.035) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+    opacity: 0.5;
+  }
+
+  &::after {
+    background-image: radial-gradient(hsl(var(--foreground) / 0.06) 0.8px, transparent 0.8px);
+    background-size: 18px 18px;
+    opacity: 0.2;
+    mix-blend-mode: multiply;
+  }
+}
+
+.dark body {
+  background:
+    radial-gradient(circle at 12% 10%, rgb(101 153 194 / 18%), transparent 24%),
+    radial-gradient(circle at 90% 16%, rgb(111 182 159 / 16%), transparent 24%),
+    radial-gradient(circle at 74% 74%, rgb(225 174 134 / 12%), transparent 20%),
+    linear-gradient(180deg, hsl(222 27% 10%) 0%, hsl(223 23% 9%) 50%, hsl(225 24% 7%) 100%);
+
+  &::before {
+    background-image:
+      linear-gradient(hsl(var(--foreground) / 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--foreground) / 0.045) 1px, transparent 1px);
+    opacity: 0.22;
+  }
+
+  &::after {
+    opacity: 0.08;
+    mix-blend-mode: screen;
+  }
+}
+
+#main-container {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  background: linear-gradient(
+    180deg,
+    hsl(var(--background) / 0.7) 0%,
+    hsl(var(--background) / 0.84) 18%,
+    hsl(var(--background) / 0.92) 100%
+  );
+  border-inline: 1px solid hsl(var(--border) / 0.5);
+  box-shadow:
+    0 1px 0 hsl(var(--background) / 0.7) inset,
+    0 24px 60px rgb(56 44 28 / 12%);
+  backdrop-filter: blur(22px) saturate(140%);
+}
+
+@media (max-width: 639px) {
+  #main-container {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--background) / 0.76) 0%,
+      hsl(var(--background) / 0.94) 100%
+    );
+    border-inline: 0;
+    box-shadow: none;
+  }
+}
+
+::selection {
+  background: hsl(var(--primary) / 0.2);
+}
+
+a {
+  transition: color 0.2s ease;
+  &:hover {
+    color: hsl(var(--primary) / var(--un-text-opacity, 1));
+  }
+}

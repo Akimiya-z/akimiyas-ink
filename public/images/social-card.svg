@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f2efe9" />
+      <stop offset="100%" stop-color="#b8c8be" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="930" cy="150" r="220" fill="#1f2937" opacity="0.08" />
+  <circle cx="1040" cy="520" r="190" fill="#1f2937" opacity="0.06" />
+  <rect x="80" y="90" width="180" height="180" rx="90" fill="#1f2937" />
+  <circle cx="170" cy="150" r="38" fill="#d8e3dc" />
+  <path
+    d="M112 234c7-28 28-44 58-44s51 16 58 44"
+    fill="none"
+    stroke="#d8e3dc"
+    stroke-linecap="round"
+    stroke-width="22"
+  />
+  <text x="80" y="380" fill="#1f2937" font-family="Georgia, serif" font-size="70" font-weight="700">
+    Akimiya Notes
+  </text>
+  <text x="80" y="460" fill="#334155" font-family="Arial, sans-serif" font-size="34">
+    A personal website built with Astro and Vercel.
+  </text>
+  <text x="80" y="515" fill="#334155" font-family="Arial, sans-serif" font-size="34">
+    Blog, build logs, and notes that grow over time.
+  </text>
+</svg>

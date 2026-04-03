@@ -1,6 +1,6 @@
-# Akimiya Notes
+# Akimiya's ink
 
-基于 `Astro Theme Pure` 搭出来的第一版个人网站，当前只保留了首页、博客和关于页。
+Akimiya 的个人网站与博客仓库，基于 `Astro Theme Pure` 搭建，并部署到 Vercel。
 
 ## 本地运行
 

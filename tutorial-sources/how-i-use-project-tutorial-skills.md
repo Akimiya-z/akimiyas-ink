@@ -4,7 +4,7 @@
 
 - 主题：说明我现在如何用 `project-tutorial-generator` 和 `review-project-tutorial`，把和 Codex 的项目协作整理成教程博客
 - 日期：2026-04-03
-- 最终产物：`src/content/blog/codex-project-tutorial-workflow/index.md`
+- 最终产物：`src/content/blog/how-i-use-project-tutorial-skills/index.md`
 
 ## 起点与前提
 
@@ -15,18 +15,21 @@
 ## 关键步骤
 
 1. 先明确这两个 skill 的分工：一个生成初稿，一个负责审查与发布整理
-2. 把文章主线定成“先做项目，再生成，再审查，再构建发布”
-3. 明确写出生成器和审查器各自的自然语言用法和显式用法
-4. 把输出文件位置说清楚，并注明这套路径是按我当前博客仓库约定来的：正文进 `src/content/blog/`，摘要进 `tutorial-sources/`
-5. 加一节说明新对话如何靠摘要文件恢复上下文
+2. 在正文最前面补上 skill 的下载仓库、安装命令和目标博客配置文件
+3. 把文章主线定成“先安装、再做项目、再生成、再审查、再构建发布”
+4. 明确写出生成器和审查器各自的自然语言用法和显式用法
+5. 把输出文件位置说清楚，并注明这套路径是按我当前博客仓库约定来的：正文进 `src/content/blog/`，摘要进 `tutorial-sources/`
+6. 加一节说明新对话如何靠摘要文件恢复上下文
 
 ## 关键命令与路径
 
 - 命令：`Use $project-tutorial-generator 把这次和 Codex 协作完成的代码项目过程整理成教程博客，先给出提纲，再生成正文。`
 - 命令：`Use $review-project-tutorial 审查这篇代码项目教程博客；如果问题不大，直接整理成发布版。`
+- 命令：`./scripts/install_skills.sh`
 - 命令：`npm run build`
 - 路径：`src/content/blog/<slug>/index.md`
 - 路径：`tutorial-sources/<slug>.md`
+- 路径：`.codex/project-tutorial-blog.json`
 
 ## 关键决策
 

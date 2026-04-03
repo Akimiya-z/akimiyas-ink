@@ -20,19 +20,45 @@ language: '中文'
 
 ## 你需要准备的内容
 
-- 这两个 skill 已经装进你的 Codex 环境
+- 一个可写的博客项目仓库
+- 这两个 skill 对应的 GitHub 仓库：[Akimiya-z/code-project-tutorial-blog-skills](https://github.com/Akimiya-z/code-project-tutorial-blog-skills)
 - 一个已经做完或基本做完的代码项目
 - 你的博客仓库已经能正常写文章并构建
 - 愿意先让文章成型，再决定要不要细修
-- 10 到 20 分钟
+- 15 到 25 分钟
 
-## Step 1: 先把项目做完再写教程
+## Step 1: 先安装这两个 Skill
+
+- 先打开这个仓库：
+  [Akimiya-z/code-project-tutorial-blog-skills](https://github.com/Akimiya-z/code-project-tutorial-blog-skills)
+- 把仓库 clone 到本地后，进入仓库目录执行：
+
+```bash
+./scripts/install_skills.sh
+```
+
+- 这一步会把两个 skill 链接进你的 `${CODEX_HOME:-$HOME/.codex}/skills`
+- 安装完成后，你还要在自己的博客项目里放一个配置文件，例如：
+
+```text
+.codex/project-tutorial-blog.json
+```
+
+- 一个 Astro content blog 的示例配置已经放在仓库里：
+
+```text
+examples/astro-content-blog/.codex/project-tutorial-blog.json
+```
+
+- 只有装好 skill 并配置好目标博客项目，后面的生成和审查才知道该往哪里写文件
+
+## Step 2: 先把项目做完再写教程
 
 - 这套流程适合“事后整理”，不适合一边开发一边写博客
 - 先和 Codex 把项目做完，至少做到功能、页面、脚本或部署流程已经基本稳定
 - 只有项目本身有了真实步骤、真实坑和真实结果，后面的教程才不会变成空话
 
-## Step 2: 用生成器把真实过程整理成初稿
+## Step 3: 用生成器把真实过程整理成初稿
 
 - 在当前对话里直接说你要把这次项目整理成教程博客，例如：
 
@@ -63,7 +89,7 @@ src/content/blog/<slug>/index.md
 tutorial-sources/<slug>.md
 ```
 
-## Step 3: 先检查它写出来的是什么
+## Step 4: 先检查它写出来的是什么
 
 - 初稿生成后，先看三件事：
   - 标题是不是对的
@@ -73,7 +99,7 @@ tutorial-sources/<slug>.md
 - 这一轮不要急着抠字眼，先确认文章方向没跑偏
 - 如果主题变了，比如从“复盘自己怎么做”改成“教别人怎么复用仓库”，应该在这一步就纠正
 
-## Step 4: 用审查器把初稿变成可发布版本
+## Step 5: 用审查器把初稿变成可发布版本
 
 - 如果你只想看问题，不想立刻修改，可以这样说：
 
@@ -102,7 +128,7 @@ Use $review-project-tutorial 审查这篇代码项目教程博客；如果问题
 
 - 如果文章方向已经是对的，通常这一步主要做的是收紧措辞、补前提、删废话，而不是整篇重写
 
-## Step 5: 用摘要文件解决“换对话后丢上下文”
+## Step 6: 用摘要文件解决“换对话后丢上下文”
 
 - 如果你当场没有发文章，之后另开一个新对话也没关系
 - 生成器在第一次写完时，已经留下一份摘要：
@@ -119,7 +145,7 @@ tutorial-sources/<slug>.md
 
 - 这样即使原始对话不在了，仍然可以靠摘要和项目现状把文章重建出来
 
-## Step 6: 构建、检查并发布
+## Step 7: 构建、检查并发布
 
 - 文章整理完后，回到博客仓库里跑一次构建：
 
@@ -144,6 +170,7 @@ git push
 - 如果你平时更习惯自然说话，不一定每次都要显式写 `$project-tutorial-generator` 或 `$review-project-tutorial`；但在触发不稳的时候，显式写法最省事
 - 真正决定文章质量的，不是 prompt 写得多花，而是你有没有真实做完这个项目、有没有留下真实决策和真实坑
 - 这篇文章里的输出路径是按我当前博客仓库的约定写的；如果你以后换博客结构，应该先改对应的 skill 配置或输出目录
+- 如果你没有先安装 skill，或者没有在目标博客项目里放配置文件，它们就不知道该往哪个仓库、哪个目录写文章
 
 ## 下一步
 

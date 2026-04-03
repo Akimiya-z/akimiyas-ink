@@ -1,5 +1,6 @@
 ---
 import PageLayout from '@/layouts/CommonPage.astro'
+import { socialProfiles } from '@/site-config'
 
 const headings = [
   { depth: 2, slug: 'education', text: 'Education' },
@@ -46,7 +47,19 @@ const headings = [
   <ul>
     <li>
       GitHub:
-      <a href='https://github.com/Akimiya-z' target='_blank'>https://github.com/Akimiya-z</a>
+      <a href={socialProfiles.github} target='_blank'>{socialProfiles.github}</a>
+    </li>
+    <li>
+      Zhihu:
+      <a href={socialProfiles.zhihu} target='_blank'>{socialProfiles.zhihu}</a>
+    </li>
+    <li>
+      Bilibili:
+      <a href={socialProfiles.bilibili} target='_blank'>{socialProfiles.bilibili}</a>
+    </li>
+    <li>
+      Xiaohongshu:
+      <a href={socialProfiles.xiaohongshu} target='_blank'>{socialProfiles.xiaohongshu}</a>
     </li>
     <li>
       Email:

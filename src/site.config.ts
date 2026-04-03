@@ -1,6 +1,6 @@
 import type { CardListData, Config, IntegrationUserConfig, ThemeUserConfig } from 'astro-pure/types'
 
-const siteUrl = 'https://your-project.vercel.app'
+const siteUrl = 'https://akimiyas-ink.vercel.app'
 const githubUrl = 'https://github.com/Akimiya-z'
 const zhihuUrl = 'https://www.zhihu.com/people/snsjshhsh'
 const bilibiliUrl = 'https://space.bilibili.com/3461570801699042?spm_id_from=333.337.0.0'

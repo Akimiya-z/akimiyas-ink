@@ -1,6 +1,6 @@
 ---
-title: '我把 ARIS 收进项目目录的过程记录'
-description: '记录我把 ARIS 独立版收进项目目录、接上会员 reviewer、补齐本地 LaTeX 和 Codex bridge 的过程。'
+title: '我把 ARIS 封装成了 Codex App 里的可调用工具'
+description: '记录我把 ARIS 独立版收进项目目录、接上会员 reviewer、补齐本地 LaTeX 和 Codex bridge，最后让 Codex App 能直接调用它。'
 publishDate: 2026-04-04
 tags:
   - 记录

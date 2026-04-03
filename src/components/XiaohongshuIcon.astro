@@ -1,0 +1,30 @@
+---
+interface Props {
+  class?: string
+}
+
+const { class: className, ...props } = Astro.props
+---
+
+<svg
+  aria-hidden='true'
+  class={className}
+  width='22'
+  height='22'
+  viewBox='0 0 24 24'
+  fill='none'
+  {...props}
+>
+  <rect x='2.3' y='3.1' width='19.4' height='17.8' rx='4.9' fill='currentColor' />
+  <text
+    x='12'
+    y='15.1'
+    fill='#fff'
+    font-size='5.7'
+    font-weight='700'
+    text-anchor='middle'
+    font-family='ui-sans-serif,-apple-system,BlinkMacSystemFont,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,sans-serif'
+  >
+    小红书
+  </text>
+</svg>

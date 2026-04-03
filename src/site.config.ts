@@ -2,11 +2,23 @@ import type { CardListData, Config, IntegrationUserConfig, ThemeUserConfig } fro
 
 const siteUrl = 'https://your-project.vercel.app'
 const githubUrl = 'https://github.com/Akimiya-z'
+const zhihuUrl = 'https://www.zhihu.com/people/snsjshhsh'
+const bilibiliUrl = 'https://space.bilibili.com/3461570801699042?spm_id_from=333.337.0.0'
+const xiaohongshuUrl = 'https://www.xiaohongshu.com/user/profile/63250d9c0000000023025871?m_source=pwa'
+const emailUrl = 'mailto:zjy.akimiya@gmail.com'
+
+export const socialProfiles = {
+  github: githubUrl,
+  zhihu: zhihuUrl,
+  bilibili: bilibiliUrl,
+  xiaohongshu: xiaohongshuUrl,
+  email: emailUrl
+} as const
 
 export const theme: ThemeUserConfig = {
   // [Basic]
   /** Title for your website. Will be used in metadata and as browser tab title. */
-  title: 'Akimiya Notes',
+  title: "Akimiya's ink",
   /** Will be used in index page & copyright declaration */
   author: 'Akimiya',
   /** Description metadata for your website. Can be used in page metadata. */
@@ -50,7 +62,11 @@ export const theme: ThemeUserConfig = {
 
   /** Configure the header of your site. */
   header: {
-    menu: [{ title: '博客', link: '/blog' }, { title: '关于', link: '/about' }]
+    menu: [
+      { title: 'Blog', link: '/blog' },
+      { title: 'Projects', link: '/projects' },
+      { title: 'About', link: '/about' }
+    ]
   },
 
   /** Configure the footer of your site. */
@@ -61,7 +77,12 @@ export const theme: ThemeUserConfig = {
     /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
     credits: false,
     /** Optional details about the social media accounts for this site. */
-    social: { github: githubUrl }
+    social: {
+      github: socialProfiles.github,
+      zhihu: socialProfiles.zhihu,
+      bilibili: socialProfiles.bilibili,
+      email: socialProfiles.email
+    }
   },
 
   // [Content]
@@ -102,8 +123,8 @@ export const integ: IntegrationUserConfig = {
   // See: https://astro-pure.js.org/docs/integrations/advanced#web-content-render
   // [Quote]
   quote: {
-    server: 'https://dummyjson.com/quotes/random',
-    target: `(data) => data.quote || 'Hello, world.'`
+    server: '/quote.json',
+    target: `(data) => data.quote || '对未来的真正慷慨，是把一切都献给现在'`
   },
   // [Typography]
   // https://unocss.dev/presets/typography

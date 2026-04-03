@@ -4,15 +4,25 @@ import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
 import { Button, Card, Icon, Label } from 'astro-pure/user'
 import PageLayout from '@/layouts/BaseLayout.astro'
 import Section from '@/components/home/Section.astro'
-import config from '@/site-config'
+import SkillLayout from '@/components/home/SkillLayout.astro'
+import config, { socialProfiles } from '@/site-config'
+import XiaohongshuIcon from '@/components/XiaohongshuIcon.astro'
 
-const MAX_POSTS = 5
+const focus = ['Causal Inference']
+const skills = ['Python', 'R', 'Markdown', 'LaTeX']
+const music = ['R&B', 'Soul', 'Jazz', 'Funk']
+const sports = ['Table Tennis']
+
+const MAX_POSTS = 10
 const allPosts = await getBlogCollection()
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
-const githubUrl = config.footer.social?.github
+const githubUrl = socialProfiles.github
+const zhihuUrl = socialProfiles.zhihu
+const bilibiliUrl = socialProfiles.bilibili
+const xiaohongshuUrl = socialProfiles.xiaohongshu
 ---
 
-<PageLayout meta={{ title: '首页' }} highlightColor='#D26B44'>
+<PageLayout meta={{ title: 'Home' }}>
   <main class='flex w-full flex-col items-center'>
     <section class='animate mb-10 flex flex-col items-center gap-y-7' id='content-header'>
       <img
@@ -24,35 +34,49 @@ const githubUrl = config.footer.social?.github
 
       <div class='flex flex-col items-center gap-y-4'>
         <h1 class='text-3xl font-medium'>{config.author}</h1>
-        <p class='max-w-xl text-center text-muted-foreground'>{config.description}</p>
         <div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
           {githubUrl && (
             <Label title='GitHub' as='a' href={githubUrl} target='_blank'>
               <Icon name='github' class='size-5' slot='icon' />
             </Label>
           )}
+          {zhihuUrl && (
+            <Label title='Zhihu' as='a' href={zhihuUrl} target='_blank'>
+              <Icon name='zhihu' class='size-5' slot='icon' />
+            </Label>
+          )}
+          {bilibiliUrl && (
+            <Label title='Bilibili' as='a' href={bilibiliUrl} target='_blank'>
+              <Icon name='bilibili' class='size-5' slot='icon' />
+            </Label>
+          )}
+          {xiaohongshuUrl && (
+            <Label title='Xiaohongshu' as='a' href={xiaohongshuUrl} target='_blank'>
+              <XiaohongshuIcon class='size-6' slot='icon' />
+            </Label>
+          )}
         </div>
       </div>
 
-      <div class='flex flex-wrap justify-center gap-3'>
-        <Button title='查看博客' href='/blog' variant='ahead' />
-        <Button title='关于我' href='/about' variant='button' />
-      </div>
     </section>
 
     <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
-      <Section title='欢迎'>
-        <p class='text-muted-foreground'>
-          这是一个基于 Astro Theme Pure 搭建的个人网站第一版，用来放博客、折腾记录和以后会持续补完的个人信息。
-        </p>
-        <p class='text-muted-foreground'>
-          现在的目标很简单：先把站点搭起来，再慢慢把内容换成真正属于自己的东西。
-        </p>
-        <Button title='查看更多' class='w-fit self-end' href='/about' variant='ahead' />
+      <Section title='About'>
+        <p class='mt-1 text-muted-foreground'>学生 / 应用统计学</p>
+        <div class='flex flex-col gap-2 leading-6 text-muted-foreground'>
+          <p>你好，我是 Akimiya，目前在北京师范大学珠海校区就读，应用统计学本科在读。</p>
+          <p>
+            喜欢听歌，也喜欢唱歌，平时常听 R&amp;B、soul、jazz 和 funk。
+          </p>
+          <p>
+            这个网站用来记录我的学习过程，也会慢慢整理一些关于生活和兴趣相关的内容。
+          </p>
+        </div>
+        <Button title='More about me' class='w-fit self-end' href='/about' variant='ahead' />
       </Section>
       {
         allPostsByDate.length > 0 && (
-          <Section title='最新文章'>
+          <Section title='Posts'>
             <ul class='flex flex-col gap-y-1.5 sm:gap-y-2'>
               {allPostsByDate.map((p) => (
                 <li class='flex flex-col gap-x-2 sm:flex-row'>
@@ -60,32 +84,40 @@ const githubUrl = config.footer.social?.github
                 </li>
               ))}
             </ul>
-            <Button title='查看全部文章' class='w-fit self-end' href='/blog' variant='ahead' />
+            <Button title='More posts' class='w-fit self-end' href='/blog' variant='ahead' />
           </Section>
         )
       }
 
-      <Section title='现在会写什么'>
+      <Section title='Education'>
         <Card
-          heading='建站记录'
-          subheading='记录网站从初始化、改主题到上线的过程，方便以后回头看。'
+          as='div'
+          heading='北京师范大学珠海校区'
+          subheading='应用统计学本科在读'
+          date='2022 - Present'
+          class='overflow-hidden'
         >
-          <ul class='ms-4 list-disc text-muted-foreground'>
-            <li>Astro 与主题定制</li>
-            <li>Vercel 免费部署</li>
-            <li>写第一批真实文章</li>
-          </ul>
+          <img
+            class='pointer-events-none absolute top-1/2 z-0 m-0 max-w-none -translate-y-1/2'
+            src='/images/bnu-seal-official.png'
+            alt='北京师范大学校徽'
+            style='right:0.5rem;height:310%;object-fit:contain;opacity:0.32;'
+          />
         </Card>
-        <Card
-          heading='学习笔记'
-          subheading='把平时学到的东西整理成短文，后面逐步沉淀成更完整的内容。'
-        >
-          <ul class='ms-4 list-disc text-muted-foreground'>
-            <li>前端与静态站点</li>
-            <li>工具和效率方法</li>
-            <li>零散但值得记下来的想法</li>
-          </ul>
-        </Card>
+      </Section>
+
+      <Section title='Study'>
+        <div class='flex flex-col gap-y-3'>
+          <SkillLayout title='Focus' skills={focus} />
+          <SkillLayout title='Skills' skills={skills} />
+        </div>
+      </Section>
+
+      <Section title='Interests'>
+        <div class='flex flex-col gap-y-3'>
+          <SkillLayout title='Music' skills={music} />
+          <SkillLayout title='Sports' skills={sports} />
+        </div>
       </Section>
     </div>
   </main>

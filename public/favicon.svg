@@ -1,5 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="16" fill="#1f2937" />
-  <circle cx="32" cy="32" r="24" fill="#9fb8ac" />
-  <path d="M32 17 19 47h7l2.6-6.5h6.8L38 47h7L32 17Zm-.1 10.2 2.9 7.6h-5.9l3-7.6Z" fill="#1f2937" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Akimiya favicon">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ead7c3" />
+      <stop offset="100%" stop-color="#d7b89c" />
+    </linearGradient>
+    <linearGradient id="ink" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#815439" />
+      <stop offset="100%" stop-color="#c8754d" />
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="16" fill="url(#bg)" />
+  <rect x="6" y="6" width="52" height="52" rx="13" fill="none" stroke="#8a6b57" stroke-opacity=".32" />
+
+  <path
+    d="M32 14 18 49h7.2l2.7-7h8.2l2.7 7H46L32 14Zm-.03 10.05 3.58 10.15h-7.17l3.59-10.15Z"
+    fill="url(#ink)"
+  />
 </svg>

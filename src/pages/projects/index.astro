@@ -1,0 +1,24 @@
+---
+import { Card } from 'astro-pure/user'
+import PageLayout from '@/layouts/CommonPage.astro'
+
+const headings = [{ depth: 2, slug: 'selected-projects', text: 'Selected Projects' }]
+---
+
+<PageLayout title='Projects' {headings}>
+  <p>
+    这里会慢慢整理我正在做和以后想补充的项目内容。现在先从这个网站本身开始。
+  </p>
+
+  <h2 id='selected-projects'>Selected Projects</h2>
+  <Card
+    heading='个人网站'
+    subheading='使用 Astro Theme Pure 搭建并持续调整设计与内容的个人网站，用来记录学习过程、建站练习和兴趣内容。'
+    date='2026 - Present'
+  />
+
+  <Card
+    heading='更多内容整理中'
+    subheading='后续会逐步补充课程、练习、实验和更完整的个人项目记录。'
+  />
+</PageLayout>

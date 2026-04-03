@@ -2,8 +2,9 @@
 import PageLayout from '@/layouts/CommonPage.astro'
 
 const headings = [
-  { depth: 2, slug: 'who-am-i', text: '我是谁' },
-  { depth: 2, slug: 'what-i-write', text: '这里会写什么' },
+  { depth: 2, slug: 'education', text: '教育背景' },
+  { depth: 2, slug: 'interests', text: '兴趣' },
+  { depth: 2, slug: 'about-this-site', text: '关于这个网站' },
   { depth: 2, slug: 'contact', text: '联系我' },
   { depth: 2, slug: 'next-step', text: '接下来要做什么' }
 ]
@@ -11,31 +12,35 @@ const headings = [
 
 <PageLayout title='关于' {headings}>
   <p>
-    你好，我是 Akimiya。这个页面先放一个简单版本，后面可以继续补上更准确的自我介绍、经历和作品。
+    你好，我是 Akimiya。
   </p>
   <p>
-    这个网站目前的定位很明确：先稳定地放出“个人主页 + 博客”，把内容慢慢积累起来，而不是一开始就把功能铺得很大。
+    这个网站更像一个长期更新的个人空间，用来记录学习、兴趣和日常里值得留下来的片段。
   </p>
 
-  <h2 id='who-am-i'>我是谁</h2>
+  <h2 id='education'>教育背景</h2>
   <p>
-    我把这里当成一个长期维护的个人空间。它会用来记录学习、建站过程、折腾过的工具，以及一些值得留下来的想法。
+    <img
+      src='/images/bnu-logo.png'
+      alt='北京师范大学校徽'
+      width='96'
+      height='87'
+      style='margin:0 0 1rem 0'
+    />
   </p>
-  <ul>
-    <li>目前以写博客和整理个人页面为主。</li>
-    <li>内容会从“先能用”逐步升级到“更像自己”。</li>
-    <li>后续如果有合适的素材，再补作品页和更完整的介绍。</li>
-  </ul>
+  <p>目前就读于北京师范大学珠海校区，应用统计学本科在读。</p>
 
-  <h2 id='what-i-write'>这里会写什么</h2>
+  <h2 id='interests'>兴趣</h2>
   <p>
-    第一阶段会先更新这几类内容：
+    喜欢听歌，也喜欢唱歌，平时常听 R&amp;B、soul、jazz 和 funk。
+    <br />
+    曾参与北京师范大学蓝海合唱团，并随团参加合唱比赛。
   </p>
-  <ul>
-    <li>建站和部署过程中的踩坑记录。</li>
-    <li>平时学到的新工具、新方法和简短笔记。</li>
-    <li>以后整理好的项目、作品和更完整的个人简介。</li>
-  </ul>
+
+  <h2 id='about-this-site'>关于这个网站</h2>
+  <p>
+    这里用来记录我的学习过程，也会慢慢整理一些关于生活和兴趣相关的内容。
+  </p>
 
   <h2 id='contact'>联系我</h2>
   <ul>
@@ -49,10 +54,5 @@ const headings = [
     </li>
   </ul>
 
-  <h2 id='next-step'>接下来要做什么</h2>
-  <ul>
-    <li>补上自己的头像、站点标题和更准确的自我介绍。</li>
-    <li>把 GitHub 仓库连接到 Vercel，拿到第一版线上地址。</li>
-    <li>继续写博客，把示例内容彻底换成自己的内容库。</li>
-  </ul>
+
 </PageLayout>

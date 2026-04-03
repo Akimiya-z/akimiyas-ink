@@ -12,6 +12,8 @@ language: '中文'
 
 如果我每做完一个项目，都再从头手写一篇教程博客，这件事很快就会拖慢节奏。现在我把这一步收成了两个 skill：一个负责把真实项目过程整理成教程初稿，另一个负责审查和整理成发布版。它们不负责“替我做项目”，只负责在项目完成之后，把过程沉淀成一篇可以发到博客上的文章。
 
+这套 workflow 的主要参考来源，是 Gexijin 写的 [Building Tutorial Library with Slash Commands](https://gexijin.github.io/vibe/Building_Tutorial_Library_with_Slash_Commands)。我这里不是照搬 Claude Code 的 slash commands，而是把其中“先研究、先提纲、再生成、再审查”的思路，改写成了适合我自己在 Codex 里使用的两个 skill。
+
 ## 核心概念
 
 - **`project-tutorial-generator`** - 把一次已经完成的代码项目过程整理成教程博客初稿，并顺手留下一份过程摘要。
@@ -165,6 +167,7 @@ git push
 
 ## 补充说明
 
+- 这套 workflow 的主要灵感来源是 Gexijin 的 [Building Tutorial Library with Slash Commands](https://gexijin.github.io/vibe/Building_Tutorial_Library_with_Slash_Commands)；如果你想看更完整的原始思路，可以先读那篇文章
 - 这两个 skill 只适合“代码项目教程博客”这个场景，不适合统计学笔记、普通随笔或 README
 - 生成器负责把过程写成文章，审查器负责把文章变得更稳，不要让一个 skill 既干活又包办所有决策
 - 如果你平时更习惯自然说话，不一定每次都要显式写 `$project-tutorial-generator` 或 `$review-project-tutorial`；但在触发不稳的时候，显式写法最省事

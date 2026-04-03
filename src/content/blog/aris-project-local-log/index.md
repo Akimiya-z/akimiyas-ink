@@ -12,7 +12,7 @@ language: '中文'
 
 这篇不是教程，是给未来的自己留一份过程记录。我要的不是“把 ARIS 装上”，而是让它尽量只在 `/Users/akimiya/Codex/ARIS` 这个工作区里生效：skill、配置、MCP、论文输出、实验输出都尽量收进项目里，项目外不要平白多出一套全局工作流。
 
-最后做出来的结果不是官方原样安装版，而是一个能稳定用的本地定制版：ARIS 本体在项目里，配置在项目里，LaTeX 在项目里，Codex 里还多了一层只在我明确说“进入 ARIS 模式”后才接管的 bridge。
+最后做出来的结果不是官方原样安装版，而是一个能稳定用的本地定制版：ARIS 本体在项目里，配置在项目里，LaTeX 在项目里，Codex 里还多了一层只在我明确说“进入 ARIS 模式”后才接管的 bridge。换句话说，最后保住的不只是一个能单独启动的 ARIS CLI，而是一个能在 Codex App 里直接调用的 ARIS 工作流入口。
 
 ## 一开始我想走的其实是拼装路线
 
@@ -148,6 +148,6 @@ ARIS 的运行配置没有落到默认全局目录，而是收进了：
 /Users/akimiya/Codex/ARIS/scripts/aris-standalone.sh
 ```
 
-如果我想让 Codex 当入口、ARIS 当后台，就先在对话里明确说“进入 ARIS 模式”，后面再继续说我要做文献回顾、idea discovery、paper compile 或者 slides。
+如果我想让 Codex 当入口、ARIS 当后台，就先在对话里明确说“进入 ARIS 模式”，后面再继续说我要做文献回顾、idea discovery、paper compile 或者 slides。实际体验上，这已经不是“我切到另一个 CLI 去用它”，而是“我留在 Codex App 里，由 Codex 帮我调用 ARIS”。
 
 这篇先记到这里。它不是“别人照着就能复刻”的完整说明书，更像是我给未来自己留的一张地图：为什么最后会变成现在这套、哪些地方是官方原样、哪些地方已经被我改过，以及以后最好别怎么乱动它。

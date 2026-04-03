@@ -1,11 +1,12 @@
 ---
 import { PostPreview } from 'astro-pure/components/pages'
-import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
+import { getBlogCollection } from 'astro-pure/server'
 import { Button, Card, Icon, Label } from 'astro-pure/user'
 import PageLayout from '@/layouts/BaseLayout.astro'
 import Section from '@/components/home/Section.astro'
 import SkillLayout from '@/components/home/SkillLayout.astro'
 import config, { socialProfiles } from '@/site-config'
+import { sortBlogPosts } from '@/utils/blog'
 import XiaohongshuIcon from '@/components/XiaohongshuIcon.astro'
 
 const focus = ['Causal Inference']
@@ -15,7 +16,7 @@ const sports = ['Table Tennis']
 
 const MAX_POSTS = 10
 const allPosts = await getBlogCollection()
-const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
+const allPostsByDate = sortBlogPosts(allPosts).slice(0, MAX_POSTS)
 const githubUrl = socialProfiles.github
 const zhihuUrl = socialProfiles.zhihu
 const bilibiliUrl = socialProfiles.bilibili

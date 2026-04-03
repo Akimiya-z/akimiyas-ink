@@ -10,7 +10,12 @@ tags:
 language: '中文'
 ---
 
-如果你想让 macOS 上的 Codex App 尽量自动走 RTK，而不是每次手动在命令前面加 `rtk`，我把这套接法整理成了一个仓库：[codex-rtk-bootstrap](https://github.com/Akimiya-z/codex-rtk-bootstrap)。它只改你这个 Mac 用户自己的 Codex 配置和 `PATH`，不碰你的项目代码。跑完安装脚本后，新开的 Codex 对话会尽量先把常见 shell 命令交给 `rtk`，再把更短的输出交给模型。
+RTK 是一个本地命令代理，会把常见命令的输出压缩后再交给 AI，看起来更短，理论上也更省 token。这里这篇不是讲 RTK 本身，而是讲我这套把 RTK 接到 macOS Codex App 的安装器：[codex-rtk-bootstrap](https://github.com/Akimiya-z/codex-rtk-bootstrap)。如果你想在 Codex 里少手动敲前缀、少折腾本机配置，直接用这套会比自己一点点改 `~/.codex` 和 `PATH` 更省事。跑完安装脚本后，新开的 Codex 对话会尽量先把常见 shell 命令交给 `rtk`，再把更短的输出交给模型。
+
+## 先说 RTK
+
+- **RTK** - 本地命令代理，会压缩 `git status`、`ls`、`cat` 这类输出，让 AI 少看一些噪音。
+- **为什么用这套仓库** - 因为它把原本要手工做的 `~/.codex` 和 `PATH` 改动打包成 `install.sh`，装一次就能在 Codex App 里复用。
 
 ## 核心概念
 

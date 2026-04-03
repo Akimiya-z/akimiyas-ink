@@ -11,15 +11,17 @@
 - 已经有可工作的本机方案：`~/.codex/config.toml`、`~/.codex/AGENTS.md`、`~/.codex/RTK.md` 和 `~/.local/bin/rtk-shim`
 - GitHub 仓库已经发布为 `https://github.com/Akimiya-z/codex-rtk-bootstrap`
 - 文章目标是“告诉别人怎么用”，不是讲 RTK 的内部实现过程
+- 文章开头先交代 RTK 是什么，再解释为什么用这套仓库比手工改配置更省事
 
 ## 关键步骤
 
-1. 明确文章主题：面向想在 Codex App 里使用 RTK 的 macOS 用户
-2. 先把安装前提说清楚：Codex App、`rtk`、`~/.local/bin` 在 PATH 里，而且只追加一次
-3. 说明 clone 仓库并运行 `./install.sh`
-4. 说明重启 Codex App 后用新对话验证 `rtk git status`
-5. 补充可调参数 `RTK_BIN` 和 `RTK_SHIM_COMMANDS`
-6. 提供 `./uninstall.sh` 作为撤销方法
+1. 先解释 RTK 的作用和这篇文章为什么要介绍这套仓库
+2. 明确文章主题：面向想在 Codex App 里使用 RTK 的 macOS 用户
+3. 先把安装前提说清楚：Codex App、`rtk`、`~/.local/bin` 在 PATH 里，而且只追加一次
+4. 说明 clone 仓库并运行 `./install.sh`
+5. 说明重启 Codex App 后用新对话验证 `rtk git status`
+6. 补充可调参数 `RTK_BIN` 和 `RTK_SHIM_COMMANDS`
+7. 提供 `./uninstall.sh` 作为撤销方法
 
 ## 关键命令与路径
 

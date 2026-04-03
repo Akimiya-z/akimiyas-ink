@@ -10,6 +10,8 @@ tags:
 language: '中文'
 ---
 
+ARIS 是 [Auto-claude-code-research-in-sleep](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep) 这套项目里分出来的独立 CLI 版本。它把 research workflow 打包成了一套可直接调用的能力：比如 idea discovery、literature review、paper writing、paper compile、slides 和 poster。对我来说，真正有吸引力的点不是“又一个命令行工具”，而是它已经把很多研究型工作流收成了现成入口。
+
 这篇不是教程，是给未来的自己留一份过程记录。我要的不是“把 ARIS 装上”，而是让它尽量只在 `/Users/akimiya/Codex/ARIS` 这个工作区里生效：skill、配置、MCP、论文输出、实验输出都尽量收进项目里，项目外不要平白多出一套全局工作流。
 
 最后做出来的结果不是官方原样安装版，而是一个能稳定用的本地定制版：ARIS 本体在项目里，配置在项目里，LaTeX 在项目里，Codex 里还多了一层只在我明确说“进入 ARIS 模式”后才接管的 bridge。换句话说，最后保住的不只是一个能单独启动的 ARIS CLI，而是一个能在 Codex App 里直接调用的 ARIS 工作流入口。
